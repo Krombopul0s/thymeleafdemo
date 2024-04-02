@@ -5,7 +5,9 @@
     <title>Hello World - Input Form</title>
 </head>
 <body>
-    <form th:action="@{/processForm}" method="GET">
+    <!-- processForm has multiple versions we can use here -->
+    <form th:action="@{/processFormVersionThree}" method="POST">
+        <!-- the get method is sending the form data through the url to the controller -->
         <input type="text" name="studentName"
                placeholder="What's your name?" />
         <input type="submit"/>

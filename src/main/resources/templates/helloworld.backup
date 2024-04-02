@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- reference css file -->
+<!--
+The @{} here references the context path or the root of your application
+-->
+<link rel="stylesheet" th:href="@{/css/demo.css}" />
+
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf Demo</title>
+</head>
+
+<body>
+    <!--
+    -the paragraph tag below has the th:text time leaf expression to output text
+    -the "${theDate} references theDate that we created in the controller model
+    -by adding theDate as an attribute to that model, thymeleaf can access it from here
+    -->
+    <p th:text="'Time on the server is ' + ${theDate}" class="funny" />
+</body>
+</html>

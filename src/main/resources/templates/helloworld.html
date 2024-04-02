@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- reference css file -->
+<!--
+The @{} here references the context path or the root of your application
+-->
+<link rel="stylesheet" th:href="@{/css/demo.css}" />
+
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf Demo</title>
+</head>
+
+<body>
+    Hello World of Spring!
+
+<br><br>
+    <!--
+    We can access studentName which is the name of the HTML form field from helloworld-form:
+            <input type="text" name="studentName"         <--------------here
+                    placeholder="What's your name?" />
+
+    -->
+    Student name: <span th:text="${param.studentName}" />
+</body>
+</html>

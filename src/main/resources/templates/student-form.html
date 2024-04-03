@@ -34,8 +34,9 @@
         </select>
 
         or we could inject the country data from the properties into the controller and use it here.
-
         -->
+
+        Country:
 
         <select th:field="*{country}">
             <!-- here we are pulling that country list and looping over those values to dynamicall build the list -->
@@ -44,7 +45,50 @@
 
         <br><br>
 
+        Favorite Programming Language:
+
+        <!--
+        We can do the same thing with radio buttons. Here is the old way:
+
+        <input type="radio" th:field="*{favoriteProgrammingLanguage}" th:value="Go">Go</input>
+        <input type="radio" th:field="*{favoriteProgrammingLanguage}" th:value="Java">Java</input>
+        <input type="radio" th:field="*{favoriteProgrammingLanguage}" th:value="Python">Python</input>
+
+        and here is injecting the list into the model:
+        -->
+
+        <input type="radio" th:field="*{favoriteProgrammingLanguage}"
+               th:each="tempLang : ${languages}"
+               th:value="${tempLang}"
+               th:text="${tempLang}"/>
+
+        <br><br>
+
+        Favorite Operating Systems:
+
+        <!-- and again with checkboxes. The old way:
+
+        <input type="checkbox" th:field="*{favoriteSystems}" th:value="Linux">Linux</input>
+        <input type="checkbox" th:field="*{favoriteSystems}" th:value="macOS">macOS</input>
+        <input type="checkbox" th:field="*{favoriteSystems}"
+               th:value="'Microsoft Windows'">Microsoft Windows</input>
+
+        the new way:
+        -->
+
+        <input type="checkbox" th:field="*{favoriteOperatingSystems}"
+               th:each="tempSystem : ${operatingSystems}"
+               th:value="${tempSystem}"
+               th:text="${tempSystem}" />
+
+        <br><br>
+
+
         <input type="submit" value="Submit"/>
+
+
+
+
     </form>
 </body>
 </html>

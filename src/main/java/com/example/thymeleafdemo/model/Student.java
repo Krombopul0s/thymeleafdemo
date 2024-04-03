@@ -7,6 +7,10 @@ public class Student {
 
     private String country;
 
+    private String favoriteProgrammingLanguage;
+
+    private String favoriteOperatingSystems;
+
     public Student() {
     }
 
@@ -39,12 +43,30 @@ public class Student {
         this.country = country;
     }
 
+    public String getFavoriteProgrammingLanguage() {
+        return favoriteProgrammingLanguage;
+    }
+
+    public void setFavoriteProgrammingLanguage(String favoriteProgrammingLanguage) {
+        this.favoriteProgrammingLanguage = favoriteProgrammingLanguage;
+    }
+
+    public String getFavoriteOperatingSystems() {
+        return favoriteOperatingSystems;
+    }
+
+    public void setFavoriteOperatingSystems(String favoriteOperatingSystem) {
+        this.favoriteOperatingSystems = favoriteOperatingSystem;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", country='" + country + '\'' +
+                ", favoriteProgrammingLanguage='" + favoriteProgrammingLanguage + '\'' +
+                ", favoriteOperatingSystem='" + favoriteOperatingSystems + '\'' +
                 '}';
     }
 }

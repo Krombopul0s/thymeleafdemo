@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+    <title>Student Form</title>
+</head>
+<body>
+    <!-- ${student} student is the name of the model attribute -->
+    <form th:action="@{/processStudentForm}" th:object="${student}" method="POST">
+
+        <!-- *{firstName} = ${student.firstName}
+            *{...} is a shortcut and references the field of the object -->
+        First name: <input type="text" th:field="*{firstName}"/>
+
+        <br><br>
+
+        Last name: <input type="text" th:field="*{lastName}"/>
+
+        <br><br>
+
+        <!--
+            What all this says is that when the form is loaded, Spring MVC will read "student" from the model and
+            call getters for the fields we have. When we hit submit, it will create a new Student instance and add it
+            to the model and then call the setters for those fields.
+        -->
+
+        <!--
+        we could make our drop down list this with hard-coded countries
+
+        <select th:field="*{country}">
+            <option th:value="Brazil">Brazil</option>
+            <option th:value="France">France</option>
+            <option th:value="Germany">Germany</option>
+            <option th:value="USA">USA</option>
+        </select>
+
+        or we could inject the country data from the properties into the controller and use it here.
+
+        -->
+
+        <select th:field="*{country}">
+            <!-- here we are pulling that country list and looping over those values to dynamicall build the list -->
+            <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"/>"
+        </select>
+
+        <br><br>
+
+        <input type="submit" value="Submit"/>
+    </form>
+</body>
+</html>
